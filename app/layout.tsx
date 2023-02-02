@@ -1,10 +1,13 @@
+import {Noto_Sans} from '@next/font/google'
 import './globals.css'
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+const notoSans = Noto_Sans({
+  weight: ['300', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+})
+
+export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
       {/*
@@ -12,7 +15,7 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body className={notoSans.className}>{children}</body>
     </html>
   )
 }
