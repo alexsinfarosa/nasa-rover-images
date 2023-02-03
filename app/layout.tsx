@@ -1,9 +1,9 @@
 import {Noto_Sans} from '@next/font/google'
 import './globals.css'
-import Header from './Header'
+import TopNav from './TopNav'
 
 const notoSans = Noto_Sans({
-  weight: ['300', '700'],
+  weight: ['300', '400', '500', '700'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
 })
@@ -17,7 +17,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       */}
       <head />
       <body className={notoSans.className}>
-        <Header></Header>
+        <TopNav></TopNav>
         {children}
       </body>
     </html>
