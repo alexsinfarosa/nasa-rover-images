@@ -1,7 +1,8 @@
 .main {
   display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 3.5rem;
 }
 
 .header {
@@ -15,20 +16,30 @@
 .logo {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   padding: 0px;
   gap: 16px;
-
-  /* width: 367px; */
-  /* height: 121px; */
+  margin: 24px 0px;
+  width: 300px;
 }
 
-.header ul {
+.earthLogo {
+  width: 64px;
+  height: 64px;
+}
+
+.header nav ul {
   display: flex;
   margin: 0;
   padding: 0;
+  padding-bottom: 16px;
   list-style: none;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.header nav ul li {
+  margin: 0.5rem 5rem;
 }
 
 .h1 {
@@ -36,10 +47,34 @@
   font-weight: 300;
   font-size: 64px;
   line-height: 87px;
-  display: flex;
-  align-items: center;
-  text-align: center;
   color: #000000;
+}
+
+.galleryLayout {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.galleryLayout aside {
+  width: 35%;
+  /* background-color: beige; */
+}
+
+.galleryLayout aside h3 {
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 0;
+  padding-bottom: 1rem;
+}
+
+.galleryLayout section {
+  flex: 1;
+  /* background-color: burlywood; */
+}
+
+.galleryLayout aside img {
+  width: 100%;
+  border-radius: 8px;
 }
 
 /* .description {
