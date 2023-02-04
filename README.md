@@ -1,1 +1,3 @@
-# NASA Rover Photos
+# NASA Rover Images
+
+- The site is not responsive.

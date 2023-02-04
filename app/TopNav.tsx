@@ -1,79 +1,80 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from './page.module.css'
 
-const links = [
-  {
-    name: 'Missions',
-    href: '/missions',
-  },
-  {name: 'Galleries', href: '/galleries'},
-  {name: 'NASA Audience', href: '/nasa-audience'},
-  {name: 'Downloads', href: '/downloads'},
-  {name: 'NASA TV', href: '/nasa-tv'},
-  {name: 'About', href: '/about'},
+const navigation = [
+  {name: 'Missions', href: '#'},
+  {name: 'Galleries', href: '#'},
+  {name: 'NASA Audience', href: '#'},
+  {name: 'Downloads', href: '#'},
+  {name: 'NASA TV', href: '#'},
+  {name: 'About', href: '#'},
 ]
 
-export default function HeaderComponent() {
+export default function TopNav() {
   return (
-    <header className={styles.topNav}>
-      <div className={styles.logo}>
-        <Image
-          src="/assets/earth.svg"
-          alt="Earth Logo"
-          className={styles.earthLogo}
-          width={68}
-          height={68}
-          priority
-        />
-        <h1 className={styles.h1}>NASA</h1>
+    <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:px-8 mb-8">
+      <div className="relative flex items-center justify-center py-8">
+        <div className="flex items-center px-2 lg:px-0 space-x-12">
+          <div className="flex-shrink-0">
+            <Image
+              src="/assets/earth.svg"
+              alt="Earth Logo"
+              className={`h-16 w-16`}
+              width={64}
+              height={64}
+              priority
+            />
+          </div>
+          <h1 className="font-light text-5xl">NASA</h1>
+        </div>
       </div>
-      <nav>
-        <ul className={styles.menu}>
-          {links.map(({name, href}) => (
-            <li key={href}>
-              <Link key={href} href={href}>
-                {name}
-              </Link>
-            </li>
+      <nav className="flex items-center justify-center" aria-label="Global">
+        <ul className="flex gap-x-20">
+          {navigation.map(item => (
+            <Link
+              key={item.name}
+              href={item.href}
+              className=" text-lg text-gray-900"
+            >
+              {item.name}
+            </Link>
           ))}
         </ul>
       </nav>
-      <div className={styles.secondaryNav}>
-        <ul>
+
+      <hr className="h-[2px] bg-gray-100 my-5 w-4/5 mx-auto"></hr>
+
+      <div className="flex justify-end">
+        <ul className="flex gap-x-8 -mr-2">
           <li>
             <Image
               src="/assets/search.svg"
               alt="Search icon"
-              className={styles.secondaryNavLogo}
-              width={16}
-              height={16}
-              priority
+              className={`h-5 w-5`}
+              width={20}
+              height={20}
             />
           </li>
           <li>
             <Image
               src="/assets/share.svg"
               alt="Share icon"
-              className={styles.secondaryNavLogo}
-              width={16}
-              height={16}
-              priority
+              className={`h-5 w-5`}
+              width={20}
+              height={20}
             />
           </li>
           <li>
-            {' '}
             <Image
               src="/assets/menu.svg"
               alt="Menu icon"
-              className={styles.secondaryNavLogo}
-              width={16}
-              height={16}
-              priority
+              className={`h-5 w-5`}
+              width={20}
+              height={20}
             />
           </li>
         </ul>
       </div>
-    </header>
+    </div>
   )
 }
