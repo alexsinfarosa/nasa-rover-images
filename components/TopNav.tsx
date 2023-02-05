@@ -1,3 +1,4 @@
+import Menu from '@/components/MenuDropdown'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -29,12 +30,12 @@ export default function TopNav() {
         </div>
       </div>
       <nav className="flex items-center justify-center" aria-label="Global">
-        <ul className="flex gap-x-20">
+        <ul className="flex gap-x-20 relative">
           {navigation.map(item => (
             <Link
               key={item.name}
               href={item.href}
-              className=" text-lg text-gray-900"
+              className="text-lg text-gray-900 border-b border-white hover:border-b hover:border-linkHover leading-none"
             >
               {item.name}
             </Link>
@@ -65,13 +66,7 @@ export default function TopNav() {
             />
           </li>
           <li>
-            <Image
-              src="/assets/menu.svg"
-              alt="Menu icon"
-              className={`h-5 w-5`}
-              width={20}
-              height={20}
-            />
+            <Menu></Menu>
           </li>
         </ul>
       </div>

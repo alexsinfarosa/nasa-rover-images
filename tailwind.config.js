@@ -14,7 +14,10 @@ module.exports = {
         sans: ['var(--font-noto)', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        primary: 'rgba(151, 71, 255, 0.3)',
+        primary: '#4E1C90',
+        secondary: '#4D54FF',
+        hr: '#9747FF',
+        linkHover: '#BEFDFE',
       },
       boxShadow: {
         custom: '0px 6px 4px -4px rgba(0, 0, 0, 0.25)',
