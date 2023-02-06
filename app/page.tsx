@@ -1,28 +1,53 @@
 import Card from '@/components/Card'
 import Footer from '@/components/Footer'
+import Images from '@/components/Images'
 import Image from 'next/image'
 
-const images = [
-  {id: 1, src: '/assets/astronaut.jpg', alt: 'Astronaut Image'},
-  {id: 2, src: '/assets/astronaut.jpg', alt: 'Astronaut Image'},
-  {id: 3, src: '/assets/astronaut.jpg', alt: 'Astronaut Image'},
-  {id: 4, src: '/assets/astronaut.jpg', alt: 'Astronaut Image'},
-  {id: 5, src: '/assets/astronaut.jpg', alt: 'Astronaut Image'},
-  {id: 6, src: '/assets/astronaut.jpg', alt: 'Astronaut Image'},
-  {id: 7, src: '/assets/astronaut.jpg', alt: 'Astronaut Image'},
-  {id: 8, src: '/assets/astronaut.jpg', alt: 'Astronaut Image'},
-  {id: 9, src: '/assets/astronaut.jpg', alt: 'Astronaut Image'},
-]
+type Camera = {
+  id: number
+  name: string
+  rover_id: number
+  full_name: string
+}
 
-export default function Home() {
+type Rover = {
+  id: number
+  name: string
+  landing_date: string
+  launch_date: string
+  status: string
+}
+
+export type Photo = {
+  id: number
+  sol: number
+  camera: Camera
+  img_src: string
+  earth_date: string
+  rover: Rover
+}
+
+async function getPhotos(): Promise<{photos: Photo[]}> {
+  const URL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=3&api_key=DEMO_KEY`
+  const response = await fetch(URL, {next: {revalidate: 86400}})
+  if (!response.ok) {
+    throw new Error(`Failed to fetch data: ${response.statusText}`)
+  }
+  const data: {photos: Photo[]} = await response.json()
+  return data
+}
+
+export default async function Home() {
+  const {photos} = await getPhotos()
+
   return (
     <>
-      <main className="mx-auto max-w-7xl">
+      <main className="mx-auto max-w-7xl pb-8">
         <div className="flex gap-x-4 px-2 sm:px-4 lg:px-8 mb-8">
           <aside className=" w-1/3">
             <h3 className="text-gray-500 mb-3">
               Galleries &middot;{' '}
-              <span className="text-gray-900">Rover Database</span>
+              <span className="text-gray-900">Mars Rover Database</span>
             </h3>
             <Image
               src="/assets/astronaut.jpg"
@@ -45,7 +70,7 @@ export default function Home() {
               />
               <div className="ml-4">
                 <h2 className="font-semibold text-4xl">
-                  NASA&apos;s Rover Database
+                  NASA&apos;s Mars Rover Database
                 </h2>
                 <h3 className="text-[#4D54FF] text-xl">
                   Our Public Gallery for Outer Space
@@ -55,35 +80,20 @@ export default function Home() {
             <hr className="h-[3px] bg-hr opacity-30 my-3 mx-auto rounded-sm"></hr>
 
             <p className="w-4/5 mb-12 tracking-wider">
-              We want to see space throough you eyes! Take photos and uplad them
-              to our publick library. out goal is to provide the latget database
-              of quality images. Space is amazing! Let&apos;s caputure it
-              together!
+              We want to see space through your eyes! Take photos and upload
+              them to our public library. Our goal is to provide the largest
+              database of quality images. Space is amazing! Let&apos;s capture
+              it together!
             </p>
 
-            <div className="mb-4">
+            <p className="mb-4">
               <h2 className="font-bold text-2xl">Featured Images</h2>
               <h3 className="text-[#4D54FF] text-lg">Scroll to see more</h3>
-            </div>
+            </p>
 
-            <div className="flex overflow-x-scroll">
-              <ul className="flex gap-x-3">
-                {images.map(image => (
-                  <li key={image.id} className="w-[240px]">
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      className={`rounded-2xl h-[208px] w-[240px] object-cover`}
-                      width={240}
-                      height={208}
-                      priority
-                    />
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <Images photos={photos}></Images>
 
-            <div className="flex justify-end mt-8">
+            <div className="flex justify-end mt-5">
               <button className="flex items-center mr-8 font-bold text-lg border-b border-white hover:border-b hover:border-gray-700">
                 View Gallery
                 <Image
