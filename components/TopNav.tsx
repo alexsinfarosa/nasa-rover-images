@@ -30,7 +30,7 @@ export default function TopNav() {
         </div>
       </div>
       <nav className="flex items-center justify-center" aria-label="Global">
-        <ul className="relative flex gap-x-20">
+        <div className="relative flex gap-x-20">
           {navigation.map((item) => (
             <Link
               key={item.name}
@@ -40,7 +40,7 @@ export default function TopNav() {
               {item.name}
             </Link>
           ))}
-        </ul>
+        </div>
       </nav>
 
       <hr className="my-5 mx-auto h-[2px] w-4/5 bg-gray-100"></hr>

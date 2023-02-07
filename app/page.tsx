@@ -47,10 +47,10 @@ export default async function Home() {
       <main className="mx-auto max-w-7xl pb-8">
         <div className="mb-8 flex gap-x-4 px-2 sm:px-4 lg:px-8">
           <aside className=" w-1/3">
-            <h3 className="mb-3 text-gray-500">
+            <h2 className="mb-3 text-gray-500">
               Galleries &middot;{" "}
               <span className="text-gray-900">Mars Rover Database</span>
-            </h3>
+            </h2>
             <Image
               src="/assets/astronaut.jpg"
               alt="Astronaut Logo"

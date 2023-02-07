@@ -1,8 +1,8 @@
-'use client'
-import type {Photo} from '@/app/page'
-import Image from 'next/image'
+"use client";
+import type { Photo } from "@/app/page";
+import Image from "next/image";
 
-export default function Images({photos}: {photos: Photo[]}) {
+export default function Images({ photos }: { photos: Photo[] }) {
   return (
     <div className="flex overflow-x-scroll">
       <ul className="flex gap-x-4">
@@ -10,38 +10,37 @@ export default function Images({photos}: {photos: Photo[]}) {
           <li key={photo.id}>
             <button
               type="button"
-              aria-labelledby="image"
-              className="focus:outline-none focus:ring-2 rounded-2xl focus:ring-secondary focus:ring-offset-2 w-[210px] h-[208px] my-1 relative"
-              onClick={() => console.log('Clicked ' + photo.id)}
+              aria-labelledby={`image-${photo.id}`}
+              className="relative my-1 h-[208px] w-[210px] rounded-2xl focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
+              onClick={() => console.log("Clicked " + photo.id)}
             >
               <Image
-                id="image"
+                id={`image-${photo.id}`}
                 src={photo.img_src}
                 alt={`Photo of Mars Rover - id:${photo.id}`}
-                className={`rounded-2xl h-[208px] w-[210px] object-cover absolute z-0 inset-0`}
+                className={`absolute inset-0 z-0 h-[208px] w-[210px] rounded-2xl object-cover`}
                 width={210}
                 height={208}
-                priority
               />
 
-              <div className="opacity-0 hover:opacity-100 hover:bg-black/70 rounded-2xl duration-300 absolute z-10 inset-0 flex justify-center items-center text-white font-semibold text-xl">
-                <div className="text-xs px-2 w-full space-y-1">
-                  <p className="flex justify-around items-center w-full">
+              <div className="absolute inset-0 z-10 flex items-center justify-center rounded-2xl text-xl font-semibold text-white opacity-0 duration-300 hover:bg-black/70 hover:opacity-100">
+                <div className="w-full space-y-1 px-2 text-xs">
+                  <p className="flex w-full items-center justify-around">
                     <span>Rover:</span>
                     <span className="">{photo.rover.name}</span>
                   </p>
 
-                  <p className="flex justify-around items-center w-full">
+                  <p className="flex w-full items-center justify-around">
                     <span>Launch Date:</span>
                     <span className="">{photo.rover.launch_date}</span>
                   </p>
 
-                  <p className="flex justify-around items-center w-full">
+                  <p className="flex w-full items-center justify-around">
                     <span>Lending Date:</span>
                     <span className="">{photo.rover.landing_date}</span>
                   </p>
 
-                  <p className="flex justify-around items-center w-full">
+                  <p className="flex w-full items-center justify-around">
                     <span>Earth Date:</span>
                     <span className="">{photo.earth_date}</span>
                   </p>
@@ -52,5 +51,5 @@ export default function Images({photos}: {photos: Photo[]}) {
         ))}
       </ul>
     </div>
-  )
+  );
 }
