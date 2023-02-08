@@ -95,17 +95,19 @@ export default async function Home() {
 
             <Images photos={photos}></Images>
 
-            <div className="mt-5 flex justify-end">
-              <button className="mr-8 flex items-center border-b border-white text-lg font-bold hover:border-b hover:border-gray-700">
-                View Gallery
-                <Image
-                  src="/assets/right.svg"
-                  alt="Arrow Icon"
-                  className="ml-4 w-2"
-                  width={12}
-                  height={12}
-                  priority
-                />
+            <div className="group/item mt-5 flex justify-end">
+              <button className="group/edit mr-8 flex items-center border-b border-white text-lg font-bold hover:border-b hover:border-gray-500">
+                <span className="">View Gallery</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  className="ml-4 h-4 w-2 transition-all duration-300 ease-in-out group-hover/edit:translate-x-1"
+                >
+                  <path
+                    fill="#000"
+                    d="M8.573 6.922 1.898.247a.815.815 0 0 0-.58-.24.815.815 0 0 0-.58.24L.245.74c-.32.32-.32.84 0 1.16L5.85 7.505.24 13.116a.815.815 0 0 0-.24.58c0 .22.085.426.24.58l.491.492c.155.154.36.24.58.24.22 0 .426-.085.58-.24l6.682-6.681a.816.816 0 0 0 .24-.582.815.815 0 0 0-.24-.583Z"
+                  />
+                </svg>
               </button>
             </div>
           </section>
