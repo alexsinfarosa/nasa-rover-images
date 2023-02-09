@@ -28,8 +28,7 @@ export type Photo = {
 };
 
 async function getPhotos(): Promise<{ photos: Photo[] }> {
-  // const randomPage = Math.floor(Math.random() * 15) + 1
-  const randomPage = 1;
+  const randomPage = Math.floor(Math.random() * 15) + 1;
   const URL = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&page=${randomPage}&api_key=DEMO_KEY`;
   const response = await fetch(URL, { next: { revalidate: 86400 } });
   if (!response.ok) {
