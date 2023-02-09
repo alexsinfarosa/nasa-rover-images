@@ -1,13 +1,48 @@
-'use client'
-import {Menu, Transition} from '@headlessui/react'
-import Image from 'next/image'
-import {Fragment} from 'react'
+"use client";
+import { Menu, Transition } from "@headlessui/react";
+import Image from "next/image";
+import { Fragment } from "react";
+
+const dropdownItems = [
+  {
+    name: "Humans in Space",
+    href: "#",
+  },
+  {
+    name: "Moon to Mars",
+    href: "#",
+  },
+  {
+    name: "Earth",
+    href: "#",
+  },
+  {
+    name: "Space Tech",
+    href: "#",
+  },
+  {
+    name: "Solar System & Beyond",
+    href: "#",
+  },
+  {
+    name: "STEM Engagement",
+    href: "#",
+  },
+  {
+    name: "History",
+    href: "#",
+  },
+  {
+    name: "Benefits To You",
+    href: "#",
+  },
+];
 
 export default function MenuDropdown() {
   return (
     <>
       <Menu as="div" className="relative z-10 inline-block text-left">
-        {({open}) => (
+        {({ open }) => (
           <>
             <div>
               <Menu.Button className="">
@@ -41,55 +76,16 @@ export default function MenuDropdown() {
               leaveTo="transform opacity-0 scale-95"
             >
               <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                <div className="px-4 py-3 divide-y">
-                  <a
-                    href="#"
-                    className=" inline-block w-full hover:font-medium text-sm py-2"
-                  >
-                    Humans in Space
-                  </a>
-                  <a
-                    href="#"
-                    className=" inline-block w-full hover:font-medium text-sm py-2"
-                  >
-                    Moon to Mars
-                  </a>
-                  <a
-                    href="#"
-                    className=" inline-block w-full hover:font-medium text-sm py-2"
-                  >
-                    Earth
-                  </a>
-                  <a
-                    href="#"
-                    className=" inline-block w-full hover:font-medium text-sm py-2"
-                  >
-                    Space Tech
-                  </a>
-                  <a
-                    href="#"
-                    className=" inline-block w-full hover:font-medium text-sm py-2"
-                  >
-                    Solar System & Beyond
-                  </a>
-                  <a
-                    href="#"
-                    className=" inline-block w-full hover:font-medium text-sm py-2"
-                  >
-                    STEM Engagement
-                  </a>
-                  <a
-                    href="#"
-                    className=" inline-block w-full hover:font-medium text-sm py-2"
-                  >
-                    History
-                  </a>
-                  <a
-                    href="#"
-                    className=" inline-block w-full hover:font-medium text-sm py-2"
-                  >
-                    Benefits to You
-                  </a>
+                <div className="divide-y px-4 py-3">
+                  {dropdownItems.map((item) => (
+                    <a
+                      key={item.name}
+                      href="#"
+                      className=" inline-block w-full py-2 text-sm hover:font-medium"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
                 </div>
               </Menu.Items>
             </Transition>
@@ -97,5 +93,5 @@ export default function MenuDropdown() {
         )}
       </Menu>
     </>
-  )
+  );
 }

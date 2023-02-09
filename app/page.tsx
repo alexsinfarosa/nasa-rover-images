@@ -38,7 +38,7 @@ async function getPhotos(): Promise<{ photos: Photo[] }> {
   return data;
 }
 
-export default async function Home() {
+export default async function Home(): Promise<JSX.Element> {
   const { photos } = await getPhotos();
 
   return (

@@ -1,20 +1,20 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from "next/image";
+import Link from "next/link";
 
 const footerLinks = [
-  {href: '#', text: 'Contact Us'},
-  {href: '#', text: 'About Us'},
-  {href: '#', text: 'Privacy Policy'},
-  {href: '#', text: 'Sitemap'},
-  {href: '#', text: 'Terms & Conditions'},
-]
+  { href: "#", text: "Contact Us" },
+  { href: "#", text: "About Us" },
+  { href: "#", text: "Privacy Policy" },
+  { href: "#", text: "Sitemap" },
+  { href: "#", text: "Terms & Conditions" },
+];
 
 export default function Footer() {
   return (
-    <footer className="bg-primary absolute bottom-0 w-full text-white">
+    <footer className="absolute bottom-0 w-full bg-primary text-white">
       <div className="mx-auto py-4 px-6 md:flex md:items-center md:justify-between lg:px-8">
         <div className="flex justify-center space-x-6">
-          {footerLinks.map(item => (
+          {footerLinks.map((item) => (
             <Link
               key={item.text}
               href={item.href}
@@ -35,9 +35,9 @@ export default function Footer() {
               priority
             />
           </div>
-          <p className="text-center text-xs leading-5 font-light ml-2">NASA</p>
+          <p className="ml-2 text-center text-xs font-light leading-5">NASA</p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

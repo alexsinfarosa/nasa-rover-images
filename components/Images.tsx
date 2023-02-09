@@ -12,7 +12,6 @@ export default function Images({ photos }: { photos: Photo[] }) {
               type="button"
               aria-labelledby={`image-${photo.id}`}
               className="relative my-1 h-[208px] w-[210px] rounded-2xl focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2"
-              onClick={() => console.log("Clicked " + photo.id)}
             >
               <Image
                 id={`image-${photo.id}`}
