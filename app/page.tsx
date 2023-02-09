@@ -42,8 +42,9 @@ export default async function Home() {
   const { photos } = await getPhotos();
 
   return (
-    <>
-      <main className="mx-auto max-w-7xl pb-8">
+    <main>
+      {/* Images Page Content */}
+      <section className="mx-auto max-w-7xl pb-8">
         <div className="mb-8 flex gap-x-4 px-2 sm:px-4 lg:px-8">
           <aside className=" w-1/3">
             <h2 className="mb-3 text-gray-500">
@@ -111,7 +112,7 @@ export default async function Home() {
             </div>
           </section>
         </div>
-      </main>
+      </section>
 
       {/* Moon Page */}
       <section className="relative h-[860px] overflow-y-hidden">
@@ -129,6 +130,6 @@ export default async function Home() {
 
         <Footer></Footer>
       </section>
-    </>
+    </main>
   );
 }
