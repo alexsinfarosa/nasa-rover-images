@@ -45,7 +45,7 @@ export default function MenuDropdown() {
         {({ open }) => (
           <>
             <div>
-              <Menu.Button className="">
+              <Menu.Button>
                 {open ? (
                   <Image
                     src="/assets/close.svg"
@@ -81,7 +81,7 @@ export default function MenuDropdown() {
                     <a
                       key={item.name}
                       href="#"
-                      className=" inline-block w-full py-2 text-sm hover:font-medium"
+                      className="inline-block w-full py-2 text-sm hover:font-medium"
                     >
                       {item.name}
                     </a>

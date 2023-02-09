@@ -7,16 +7,17 @@ async function uploadFile(fileList: FileList) {
 
   let formData = new FormData();
 
-  for (let i = 0; i < fileList.length; i++) {
-    let file = fileList[i];
-    formData.append("file", file, file.name);
-  }
+  // for (let i = 0; i < fileList.length; i++) {
+  //   let file = fileList[i];
+  //   formData.append("file", file, file.name);
+  // }
 
   // const res = await fetch("/upload", {
   //   method: "POST",
   //   body: formData,
   //   headers: {
-  //     "Content-Type": "file.type",
+  //     // "Content-Type": "multipart/form-data",
+  //     Authorization: "Bearer [access_token]",
   //   },
   // });
 
@@ -27,7 +28,7 @@ async function uploadFile(fileList: FileList) {
   // const data = await res.json();
   // return data;
 
-  // console.log(formData);
+  // console.log(data)
 }
 
 export default function Card() {
