@@ -122,7 +122,7 @@ export default async function Home(): Promise<JSX.Element> {
         <Image
           src="/assets/moon.jpg"
           alt="Moon Background Image"
-          className="w-full object-cover"
+          className="w-full object-cover object-center"
           width={2237}
           height={2153}
           priority

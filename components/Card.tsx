@@ -7,16 +7,15 @@ async function uploadFile(fileList: FileList) {
 
   let formData = new FormData();
 
-  // for (let i = 0; i < fileList.length; i++) {
-  //   let file = fileList[i];
-  //   formData.append("file", file, file.name);
-  // }
+  for (let i = 0; i < fileList.length; i++) {
+    let file = fileList[i];
+    formData.append("file", file, file.name);
+  }
 
   // const res = await fetch("/upload", {
   //   method: "POST",
   //   body: formData,
   //   headers: {
-  //     // "Content-Type": "multipart/form-data",
   //     Authorization: "Bearer [access_token]",
   //   },
   // });
@@ -28,7 +27,7 @@ async function uploadFile(fileList: FileList) {
   // const data = await res.json();
   // return data;
 
-  // console.log(data)
+  // console.log(data);
 }
 
 export default function Card() {
@@ -40,12 +39,12 @@ export default function Card() {
 
   const handleDrop = function (e: React.DragEvent<HTMLLabelElement>) {
     e.preventDefault();
-    e.stopPropagation();
     const files = e.dataTransfer.files;
     if (files && files[0]) {
       for (let i = 0; i < files.length; i++) {
         const file = files.item(i);
         if (file && file?.size > 7000000) {
+          // > 7MB
           alert("The image file size is too big!");
           return;
         }
